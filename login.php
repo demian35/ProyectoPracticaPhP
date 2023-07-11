@@ -28,6 +28,11 @@
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     
     <style>
+
+        body{
+            background-image: url('img/rapturewallpaper.jpg');
+            background-size: 1370px 1200px;
+        }
         
         .card{
             margin-top: 50px;
@@ -52,7 +57,7 @@
                                 Usuario:
                                 <input class="form-control" type="text" name="txtusr" id="" >
                                 Password:
-                                <input class="form-control" type="text" name="contrasenia" id="" >
+                                <input class="form-control" type="password" name="contrasenia" id="" >
                                 <br>
                                 <button class="btn btn-success" type="submit">Inicia sesion</button>
 
