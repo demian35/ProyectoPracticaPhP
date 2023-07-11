@@ -1,3 +1,18 @@
+<?php
+
+    if($_POST){
+        if(($_POST['txtusr']=="DewittBooker") && ($_POST['contrasenia']=="12345")){//validacion de chocolate :V
+            echo "Inicio de sesion exitoso";
+            header("location:index.php");//si los datos son correctos redireccionamos a index con la funcion header()
+        }else{//si hay datos incorrectos usamos la funcion de javascript alert para notificar datos incorrectos
+            echo "<script>alert('Usuario o contraseña incorrecta')</script>";
+        }
+    }
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
