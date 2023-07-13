@@ -3,12 +3,15 @@
 <?php
 
 include("conexionbd.php");
+if($_POST){
+    print_r($_POST);
+    $registronombre=$_POST['nombre'];
+    $nombreArchivo=$_POST['archivo'];
+    $conbd=new conexionbd;
 
-$conbd=new conexionbd;
-
-$querySQL="INSERT INTO album.proyectgalery(idproyecto,nombre,imagen,descripcion) values(null,'jugando con bd','base.png','jugando con un proyecto');";
-$conbd->ejecutaConsulta($querySQL);
-
+    $querySQL="INSERT INTO album.proyectgalery(idproyecto,nombre,imagen,descripcion) values(null,'$registronombre','pruebaproyecto.jpg','jugando con un proyecto');";
+    $conbd->ejecutaConsulta($querySQL);
+}
 
 ?>
 
@@ -19,7 +22,7 @@ $conbd->ejecutaConsulta($querySQL);
     <div class="card-header">
     </div>
     <div class="card-body">
-        <form action="galeria.php" method="post">
+        <form action="galeria.php" enctype="multipart/form-data" method="post">
             Nombre: <input class="form-control" type="text" name="nombre" id="">
             <br>
             Imagen: <input class="form-control" type="file" name="archivo" id="">
