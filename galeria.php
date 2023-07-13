@@ -6,7 +6,7 @@
     <br>
     Imagen: <input type="file" name="archivo" id="">
     <br>
-    <input type="submit" value="Sube archivo">
+    <input type="submit" value="Envia archivo">
     <br>
     
 
