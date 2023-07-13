@@ -6,13 +6,15 @@ include("conexionbd.php");//importamos la clase conexionbd
 if($_POST){
     print_r($_POST);
     $registronombre=$_POST['nombre'];//recibimos el nombre del formulario
-    $nombreArchivo=$_POST['archivo'];
     $conbd=new conexionbd;//creamos la conexion con la base de datos
 
     //query para la insercion de datos
     $querySQL="INSERT INTO album.proyectgalery(idproyecto,nombre,imagen,descripcion) values(null,'$registronombre','pruebaproyecto.jpg','jugando con un proyecto');";
     $conbd->ejecutaConsulta($querySQL);//ejecutamos la consulta con el metodo de ejecutaconsulta de la clase conexionbd
 }
+
+$conbd2= new conexionbd; //creamos una nueva conexion con la bd
+$proyectos=$conbd2->consulta("SELECT * FROM album.proyectgalery;") //mostramos todos los registros disponibles en bd
 
 ?>
 
@@ -46,14 +48,20 @@ if($_POST){
                     <th>ID</th>
                     <th>Nombre</th>
                     <th>Imagen</th>
+                    <th>Descripcion</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
+                <?php foreach($proyectos as $proyecto){ //imprimimos cada fila y columna de la bd ?>
                 <tr class="">
-                    <td>1</td>
-                    <td>App</td>
-                    <td>imagen.jpg</td>
+                    <td><?php echo $proyecto['idproyecto'] //columna id?></td>
+                    <td><?php echo $proyecto['nombre'] //columna de nombre?></td>
+                    <td><?php echo $proyecto['imagen']//colunma imagen?></td>
+                    <td><?php echo $proyecto['descripcion']//columna descripcion?></td>
+                    <td><a name="" id="" class="btn btn-danger" href="#" role="button">Borrar</a></td>
                 </tr>
+                <?php }?>
             </tbody>
         </table>
             </div>
