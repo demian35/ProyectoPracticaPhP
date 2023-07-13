@@ -2,15 +2,16 @@
 
 <?php
 
-include("conexionbd.php");
+include("conexionbd.php");//importamos la clase conexionbd
 if($_POST){
     print_r($_POST);
-    $registronombre=$_POST['nombre'];
+    $registronombre=$_POST['nombre'];//recibimos el nombre del formulario
     $nombreArchivo=$_POST['archivo'];
-    $conbd=new conexionbd;
+    $conbd=new conexionbd;//creamos la conexion con la base de datos
 
+    //query para la insercion de datos
     $querySQL="INSERT INTO album.proyectgalery(idproyecto,nombre,imagen,descripcion) values(null,'$registronombre','pruebaproyecto.jpg','jugando con un proyecto');";
-    $conbd->ejecutaConsulta($querySQL);
+    $conbd->ejecutaConsulta($querySQL);//ejecutamos la consulta con el metodo de ejecutaconsulta de la clase conexionbd
 }
 
 ?>
