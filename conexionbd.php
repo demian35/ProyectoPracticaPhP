@@ -20,10 +20,17 @@ class conexionbd{
         }
     }
 
-    //metodo que nos permitira ejecutar una sentencia(Query) SQL
+    //metodo que nos permitira ejecutar una sentencia(Query) SQL agregar, borrar y actualizar
     public function ejecutaConsulta($sql){
         $this->coneccion->exec($sql);
         return $this->coneccion->lastInsertId();
+    }
+
+    //metodo metodo que nos va a servir para mostrar todos los registros de la bd
+    public function consulta($sql){
+        $consulta=$this->coneccion->prepare($sql);//preparamos la consulta
+        $consulta->execute();//ejecutamos la consulta
+        return $consulta->fetchAll();//regresamos todos los elementos que estan en la bd
     }
     
         
