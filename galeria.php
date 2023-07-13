@@ -1,6 +1,9 @@
 <?php include("header.php") ?>
 
-<div class="card">
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+        <div class="card">
     <div class="card-header">
     </div>
     <div class="card-body">
@@ -17,6 +20,33 @@
         Footer
     </div>
 </div>
+
+        </div>
+        <div class="col-md-6">
+        <div class="table-responsive">
+            <table class="table table-primary">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Imagen</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="">
+                    <td>1</td>
+                    <td>App</td>
+                    <td>imagen.jpg</td>
+                </tr>
+            </tbody>
+        </table>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
 
 
 <?php include("fotter.php") ?>
