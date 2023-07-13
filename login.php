@@ -1,8 +1,9 @@
 <?php
-
+session_start();
     if($_POST){
         if(($_POST['txtusr']=="DewittBooker") && ($_POST['contrasenia']=="12345")){//validacion de chocolate :V
             echo "Inicio de sesion exitoso";
+            $_SESSION['txtusr']="DewittBooker"; //para mantener el usuario en la sesion
             header("location:index.php");//si los datos son correctos redireccionamos a index con la funcion header()
         }else{//si hay datos incorrectos usamos la funcion de javascript alert para notificar datos incorrectos
             echo "<script>alert('Usuario o contraseña incorrecta')</script>";
@@ -50,7 +51,7 @@
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-header">
-                            Logueate
+                            Sign in
                         </div>
                         <div class="card-body">
                             <form action="login.php" method="post">
