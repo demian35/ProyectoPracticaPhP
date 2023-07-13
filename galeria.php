@@ -1,5 +1,17 @@
 <?php include("header.php") ?>
 
+<?php
+
+include("conexionbd.php");
+
+$conbd=new conexionbd;
+
+$querySQL="INSERT INTO album.proyectgalery(idproyecto,nombre,imagen,descripcion) values(null,'jugando con bd','base.png','jugando con un proyecto');";
+$conbd->ejecutaConsulta($querySQL);
+
+
+?>
+
 <div class="container">
     <div class="row">
         <div class="col-md-6">
