@@ -8,6 +8,10 @@ if($_POST){
     $registronombre=$_POST['nombre'];//recibimos el nombre del formulario
     $registroDescripcion=$_POST['descripcion']; //recibimos la descripcion de proyecto
     $registoImg=$_FILES['archivo']['name'];//recibimos el nombre de una imagen que suba el usuario
+
+    $archivoTemp=$_FILES['archivo']['tmp_name'];    //archivo temporal subido con el form html
+    move_uploaded_file($archivoTemp,"img/".$registoImg);//al subir la imagen la descargamos en el server
+
     $conbd=new conexionbd;//creamos la conexion con la base de datos
 
     //query para la insercion de datos
