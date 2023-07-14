@@ -7,10 +7,11 @@ if($_POST){
     print_r($_POST);
     $registronombre=$_POST['nombre'];//recibimos el nombre del formulario
     $registroDescripcion=$_POST['descripcion']; //recibimos la descripcion de proyecto
+    $registoImg=$_FILES['archivo']['name'];//recibimos el nombre de una imagen que suba el usuario
     $conbd=new conexionbd;//creamos la conexion con la base de datos
 
     //query para la insercion de datos
-    $querySQL="INSERT INTO album.proyectgalery(idproyecto,nombre,imagen,descripcion) values(null,'$registronombre','pruebaproyecto.jpg','$registroDescripcion');";
+    $querySQL="INSERT INTO album.proyectgalery(idproyecto,nombre,imagen,descripcion) values(null,'$registronombre','$registoImg','$registroDescripcion');";
     $conbd->ejecutaConsulta($querySQL);//ejecutamos la consulta con el metodo de ejecutaconsulta de la clase conexionbd
 }
 if($_GET){
