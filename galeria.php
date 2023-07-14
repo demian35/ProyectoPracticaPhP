@@ -12,6 +12,13 @@ if($_POST){
     $querySQL="INSERT INTO album.proyectgalery(idproyecto,nombre,imagen,descripcion) values(null,'$registronombre','pruebaproyecto.jpg','jugando con un proyecto');";
     $conbd->ejecutaConsulta($querySQL);//ejecutamos la consulta con el metodo de ejecutaconsulta de la clase conexionbd
 }
+if($_GET){
+    $deleteElem=$_GET['Borrar'];
+    $conbd3=new conexionbd;
+    $sentenciaborrado="DELETE FROM proyectgalery WHERE proyectgalery.idproyecto=".$deleteElem;
+    $conbd3->ejecutaConsulta($sentenciaborrado);
+}
+
 
 $conbd2= new conexionbd; //creamos una nueva conexion con la bd
 $proyectos=$conbd2->consulta("SELECT * FROM album.proyectgalery;") //mostramos todos los registros disponibles en bd
@@ -59,7 +66,7 @@ $proyectos=$conbd2->consulta("SELECT * FROM album.proyectgalery;") //mostramos t
                     <td><?php echo $proyecto['nombre'] //columna de nombre?></td>
                     <td><?php echo $proyecto['imagen']//colunma imagen?></td>
                     <td><?php echo $proyecto['descripcion']//columna descripcion?></td>
-                    <td><a name="" id="" class="btn btn-danger" href="#" role="button">Borrar</a></td>
+                    <td><a name="" id="" class="btn btn-danger" href="?Borrar=<?php echo $proyecto['idproyecto'] ?>" role="button">Borrar</a></td>
                 </tr>
                 <?php }?>
             </tbody>
