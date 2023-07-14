@@ -13,10 +13,10 @@ if($_POST){
     $conbd->ejecutaConsulta($querySQL);//ejecutamos la consulta con el metodo de ejecutaconsulta de la clase conexionbd
 }
 if($_GET){
-    $deleteElem=$_GET['Borrar'];
+    $deleteElem=$_GET['Borrar'];//recibimos un id para borrar
     $conbd3=new conexionbd;
-    $sentenciaborrado="DELETE FROM proyectgalery WHERE proyectgalery.idproyecto=".$deleteElem;
-    $conbd3->ejecutaConsulta($sentenciaborrado);
+    $sentenciaborrado="DELETE FROM proyectgalery WHERE proyectgalery.idproyecto=".$deleteElem;//sentencia de borrado
+    $conbd3->ejecutaConsulta($sentenciaborrado);//ejecutamos la sentencia
 }
 
 
