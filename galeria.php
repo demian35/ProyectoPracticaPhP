@@ -4,11 +4,11 @@
 
 include("conexionbd.php");//importamos la clase conexionbd
 if($_POST){
-    print_r($_POST);
+
+    $fecha= new DateTime();
     $registronombre=$_POST['nombre'];//recibimos el nombre del formulario
     $registroDescripcion=$_POST['descripcion']; //recibimos la descripcion de proyecto
-    $registoImg=$_FILES['archivo']['name'];//recibimos el nombre de una imagen que suba el usuario
-
+    $registoImg=$fecha->getTimestamp()."".$_FILES['archivo']['name'];//recibimos el nombre de una imagen que suba el usuario
     $archivoTemp=$_FILES['archivo']['tmp_name'];    //archivo temporal subido con el form html
     move_uploaded_file($archivoTemp,"img/".$registoImg);//al subir la imagen la descargamos en el server
 
