@@ -33,6 +33,7 @@ session_start();
         body{
             background-image: url('img/rapturewallpaper.jpg');
             background-size: 1370px 1200px;
+            background-position: center;
         }
         
         .card{

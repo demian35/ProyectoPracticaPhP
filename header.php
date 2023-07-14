@@ -18,9 +18,9 @@ if(isset($_SESSION['txtusr'])!="DewittBooker"){//if para validar que si el usuar
     
     <style>
         body{
-            background-image: url('img/rapturewallpaper.jpg');
-            background-size: 1370px 1200px;
-            background-position: center;
+            background-image: url('img/columbia.png');
+            background-size: 1920px 1080px;
+            
         }
     </style>
 
