@@ -6,10 +6,11 @@ include("conexionbd.php");//importamos la clase conexionbd
 if($_POST){
     print_r($_POST);
     $registronombre=$_POST['nombre'];//recibimos el nombre del formulario
+    $registroDescripcion=$_POST['descripcion']; //recibimos la descripcion de proyecto
     $conbd=new conexionbd;//creamos la conexion con la base de datos
 
     //query para la insercion de datos
-    $querySQL="INSERT INTO album.proyectgalery(idproyecto,nombre,imagen,descripcion) values(null,'$registronombre','pruebaproyecto.jpg','jugando con un proyecto');";
+    $querySQL="INSERT INTO album.proyectgalery(idproyecto,nombre,imagen,descripcion) values(null,'$registronombre','pruebaproyecto.jpg','$registroDescripcion');";
     $conbd->ejecutaConsulta($querySQL);//ejecutamos la consulta con el metodo de ejecutaconsulta de la clase conexionbd
 }
 if($_GET){
@@ -25,6 +26,7 @@ $proyectos=$conbd2->consulta("SELECT * FROM album.proyectgalery;") //mostramos t
 
 ?>
 
+
 <div class="container">
     <div class="row">
         <div class="col-md-6">
@@ -36,6 +38,10 @@ $proyectos=$conbd2->consulta("SELECT * FROM album.proyectgalery;") //mostramos t
             Nombre: <input class="form-control" type="text" name="nombre" id="">
             <br>
             Imagen: <input class="form-control" type="file" name="archivo" id="">
+            <br>
+            Descripcion: <div class="mb-3">
+              <textarea class="form-control" name="descripcion" id="" rows="3"></textarea>
+            </div>
             <br>
             <button class="btn btn-success" type="submit">Envia Archivo</button>
             <br>
@@ -80,4 +86,3 @@ $proyectos=$conbd2->consulta("SELECT * FROM album.proyectgalery;") //mostramos t
 
 
 
-<?php include("fotter.php") ?>
