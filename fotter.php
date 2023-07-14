@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
     <br>
-    Developed by Fink industries
+    <strong> <h4 style="color:black;"> Developed by Fink industries</h4> </strong>
 </div>
 </body>
 </html>

@@ -22,13 +22,17 @@ if(isset($_SESSION['txtusr'])!="DewittBooker"){//if para validar que si el usuar
             background-size: 1920px 1080px;
             
         }
+
+        a{
+            color:gold;
+        }
     </style>
 
 </head>
 <body>
     <div class="container">
-        <a href="index.php">Inicio</a>
-        <a href="galeria.php">Galeria</a>
-        <a href="cerrar.php">Cerrar Sesion</a>
+        <a href="index.php"><strong> Inicio </strong></a>
+        <a href="galeria.php"><strong> Galeria </strong></a>
+        <a href="cerrar.php"><strong> Cerrar Sesion </strong></a>
         <br>
 
