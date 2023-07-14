@@ -8,7 +8,7 @@
             <h1 class="display-4">Bienvenid@</h1>
             <p class="lead">Esta es tu galeria privada.</p>
             <hr class="my-4">
-            <p>Aqui podras guardar y ver todos tus momentos y recuerdos felices</p>
+            <p>Aqui podras guardar y ver todos tus proyectos</p>
             </div>
            
 
