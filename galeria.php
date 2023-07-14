@@ -21,8 +21,16 @@ if($_POST){
 if($_GET){
     $deleteElem=$_GET['Borrar'];//recibimos un id para borrar
     $conbd3=new conexionbd;
-    $sentenciaborrado="DELETE FROM proyectgalery WHERE proyectgalery.idproyecto=".$deleteElem;//sentencia de borrado
+   
+
+    $conbd2 = new conexionbd;
+    $buscaimagen=$conbd2->consulta("SELECT imagen FROM album.proyectgalery WHERE album.proyectgalery.idproyecto=".$deleteElem);
+    unlink("img/".$buscaimagen[0]['imagen']);//borramos las imagens subidas al directorio del servidor
+
+     $sentenciaborrado="DELETE FROM proyectgalery WHERE proyectgalery.idproyecto=".$deleteElem;//sentencia de borrado de la base de datos
     $conbd3->ejecutaConsulta($sentenciaborrado);//ejecutamos la sentencia
+
+
 }
 
 
