@@ -8,18 +8,18 @@ $proyectos=$conbd2->consulta("SELECT * FROM album.proyectgalery;") //mostramos t
 ?>
 Bienvenido Dewitt a tu galeria
 
-<div class="bg-light p-5 rounded-lg m-3">
-    <h1 class="display-4">Bienvenid@</h1>
-    <p class="lead">Esta es tu galeria privada.</p>
+<div class="bg-gradient p-5 rounded-lg m-3">
+    <h1 class="display-4" ><strong> Bienvenid@</strong></h1>
+    <p class="lead" ><strong> Esta es tu galeria privada.</strong></p>
     <hr class="my-4">
-    <p>Aqui podras guardar y ver todos tus proyectos</p>
+    <p><strong> podras guardar y ver todos tus proyectos</strong></p>
 </div>
 
 <div class="card-group">
 <?php foreach($proyectos as $proyecto){ //imprimimos cada fila y columna de la bd ?>
     <div class="card">
         <img  src="img/<?php echo $proyecto['imagen'];//le mostramos la imagen como tal al usuario?>" class="card-img-top" alt="...">
-        <div class="card-body">
+        <div class="card-body bg-info">
             <h5 class="card-title"><?php echo $proyecto['nombre'] //columna de nombre?></h5>
             <p class="card-text"><?php echo $proyecto['descripcion']//columna descripcion?></p>
         </div>
