@@ -83,7 +83,7 @@ $proyectos=$conbd2->consulta("SELECT * FROM album.proyectgalery;") //mostramos t
                 <tr class="">
                     <td><?php echo $proyecto['idproyecto'] //columna id?></td>
                     <td><?php echo $proyecto['nombre'] //columna de nombre?></td>
-                    <td><?php echo $proyecto['imagen']//colunma imagen?></td>
+                    <td><img width="100" src="img/<?php echo $proyecto['imagen'];//le mostramos la imagen como tal al usuario?>"></td>
                     <td><?php echo $proyecto['descripcion']//columna descripcion?></td>
                     <td><a name="" id="" class="btn btn-danger" href="?Borrar=<?php echo $proyecto['idproyecto'] ?>" role="button">Borrar</a></td>
                 </tr>
