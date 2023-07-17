@@ -49,12 +49,12 @@ $proyectos=$conbd2->consulta("SELECT * FROM album.proyectgalery;") //mostramos t
     </div>
     <div class="card-body">
         <form action="galeria.php" enctype="multipart/form-data" method="post">
-            Nombre: <input class="form-control" type="text" name="nombre" id="">
+            Nombre: <input required class="form-control" type="text" name="nombre" id="">
             <br>
-            Imagen: <input class="form-control" type="file" name="archivo" id="">
+            Imagen: <input required class="form-control" type="file" name="archivo" id="">
             <br>
             Descripcion: <div class="mb-3">
-              <textarea class="form-control" name="descripcion" id="" rows="3"></textarea>
+              <textarea required class="form-control" name="descripcion" id="" rows="3"></textarea>
             </div>
             <br>
             <button class="btn btn-success" type="submit">Envia Archivo</button>
