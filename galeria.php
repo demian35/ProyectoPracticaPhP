@@ -17,7 +17,8 @@ if($_POST){
     //query para la insercion de datos
     $querySQL="INSERT INTO album.proyectgalery(idproyecto,nombre,imagen,descripcion) values(null,'$registronombre','$registoImg','$registroDescripcion');";
     $conbd->ejecutaConsulta($querySQL);//ejecutamos la consulta con el metodo de ejecutaconsulta de la clase conexionbd
-}
+    header("location:galeria.php");//redireccionamiento para que cuando el usuario actualice no se envie algo de nuevo
+}   
 if($_GET){
     $deleteElem=$_GET['Borrar'];//recibimos un id para borrar
     $conbd3=new conexionbd;
@@ -27,9 +28,9 @@ if($_GET){
     $buscaimagen=$conbd2->consulta("SELECT imagen FROM album.proyectgalery WHERE album.proyectgalery.idproyecto=".$deleteElem);
     unlink("img/".$buscaimagen[0]['imagen']);//borramos las imagens subidas al directorio del servidor
 
-     $sentenciaborrado="DELETE FROM proyectgalery WHERE proyectgalery.idproyecto=".$deleteElem;//sentencia de borrado de la base de datos
+    $sentenciaborrado="DELETE FROM proyectgalery WHERE proyectgalery.idproyecto=".$deleteElem;//sentencia de borrado de la base de datos
     $conbd3->ejecutaConsulta($sentenciaborrado);//ejecutamos la sentencia
-
+    header("location:galeria.php");//redireccionamiento para que cuando el usuario actualice no se elimine de nuevo un dato
 
 }
 
