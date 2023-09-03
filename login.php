@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+
 include("conexionbd.php");
 
 if ($_POST) {
@@ -8,14 +10,14 @@ if ($_POST) {
     $usuario = $_POST['usuario'];
     $contrasenia = $_POST['contrasenia'];
     //sentencia para consultar
-    $sentencia="SELECT COUNT(*) FROM album.usuarios WHERE usuario = ? AND contrasenia = ?";
+    $sentencia = "SELECT COUNT(*) FROM album.usuarios WHERE usuario = ? AND contrasenia = ?";
     //consulta para leer los datos de la tabla de usuarios
     $consulta = $conexionLogin->consultaUsuarios($sentencia, array($usuario, $contrasenia));
     // Verificar si la consulta se preparó correctamente
     if ($consulta) {
         // Vincular los valores a los marcadores de posición
-        $consulta->bindParam(1, $usuario,PDO::PARAM_STR);
-        $consulta->bindParam(2, $contrasenia,PDO::PARAM_STR);
+        $consulta->bindParam(1, $usuario, PDO::PARAM_STR);
+        $consulta->bindParam(2, $contrasenia, PDO::PARAM_STR);
 
         // Ejecutar la consulta
         $consulta->execute();
@@ -108,17 +110,6 @@ if ($_POST) {
             </div>
         </div>
 
-    </div>
-    <form action="login.php" method="post">
-
-    </form>
-
-</body>
-
-</html>
-</head>
-
-<body>
 
 </body>
 
