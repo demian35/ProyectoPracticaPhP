@@ -96,7 +96,7 @@ if ($_POST) {
 
                     </div>
                     <div class="card-footer text-muted">
-                        <a href="creaUsuario.php">No tienes cuenta Registrate aqui</a>
+                        <a href="registraUsuario.php">No tienes cuenta Registrate aqui</a>
                     </div>
                 </div>
 
