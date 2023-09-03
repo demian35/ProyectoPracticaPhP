@@ -1,4 +1,11 @@
-
+<?php
+session_start();
+if(!isset($_SESSION['usuario'])){//if para validar que si el usuario esta logueado
+    header("location:login.php");              //entonces pueda acceder a la pagina principal
+                                                //En otro caso no pase del login a la pagina principal
+    exit;
+}
+?>
 
 
 
