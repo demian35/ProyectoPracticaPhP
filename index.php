@@ -6,7 +6,7 @@ $conbd2= new conexionbd; //creamos una nueva conexion con la bd
 $proyectos=$conbd2->consulta("SELECT * FROM album.proyectgalery;") //mostramos todos los registros disponibles en bd
 
 ?>
-Bienvenido Dewitt a tu galeria
+Bienvenido a la galeria galeria
 
 <div class="bg-gradient p-5 rounded-lg m-3">
     <h1 class="display-4" ><strong> Bienvenid@</strong></h1>
