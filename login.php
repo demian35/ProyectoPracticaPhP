@@ -2,22 +2,42 @@
 session_start();
 include("conexionbd.php");
 
-
 if ($_POST) {
-    /*if(($_POST['txtusr']=="DewittBooker") && ($_POST['contrasenia']=="12345")){//validacion de chocolate :V
-            echo "Inicio de sesion exitoso";
-            $_SESSION['txtusr']="DewittBooker"; //para mantener el usuario en la sesion
-            header("location:index.php");//si los datos son correctos redireccionamos a index con la funcion header()
-        }else{//si hay datos incorrectos usamos la funcion de javascript alert para notificar datos incorrectos
-            echo "<script>alert('Usuario o contraseña incorrecta')</script>";
-        }*/
+
     $conexionLogin = new conexionbd;
     $usuario = $_POST['usuario'];
     $contrasenia = $_POST['contrasenia'];
-    $consulta = $conexionLogin->consultaUsuarios("SELECT COUNT(*) FROM album.usuarios WHERE usuario= ? AND contrasenia= ?");
+    //sentencia para consultar
+    $sentencia="SELECT COUNT(*) FROM album.usuarios WHERE usuario = ? AND contrasenia = ?";
+    //consulta para leer los datos de la tabla de usuarios
+    $consulta = $conexionLogin->consultaUsuarios($sentencia, array($usuario, $contrasenia));
     // Verificar si la consulta se preparó correctamente
+    if ($consulta) {
+        // Vincular los valores a los marcadores de posición
+        $consulta->bindParam(1, $usuario,PDO::PARAM_STR);
+        $consulta->bindParam(2, $contrasenia,PDO::PARAM_STR);
 
+        // Ejecutar la consulta
+        $consulta->execute();
+
+        // Obtener el resultado
+        $resultado = $consulta->fetchColumn();
+
+        // Continuar con la verificación del resultado
+        if ($resultado == 1) {
+            // Usuario y contraseña válidos
+            $_SESSION['usuario'] = $usuario; // Guardar el usuario en la sesión
+            header("location: index.php"); // Redirigir al usuario a la página principal
+        } else {
+            // Usuario o contraseña incorrectos
+            echo "<script>alert('Usuario o contraseña incorrecta')</script>";
+        }
+    } else {
+        // Error en la consulta preparada
+        echo "Error en la consulta preparada";
+    }
 }
+
 
 
 ?>
@@ -65,7 +85,7 @@ if ($_POST) {
                     <div class="card-body">
                         <form action="login.php" method="post">
                             Usuario:
-                            <input class="form-control" type="text" name="txtusr" id="">
+                            <input class="form-control" type="text" name="usuario" id="">
                             Password:
                             <input class="form-control" type="password" name="contrasenia" id="">
                             <br>
