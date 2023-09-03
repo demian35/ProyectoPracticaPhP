@@ -1,6 +1,12 @@
 <?php
 session_start();
 
+// Verifica si se estableció el parámetro de éxito en la URL
+if (isset($_GET['registro_exitoso']) && $_GET['registro_exitoso'] == 1) {
+    echo '<div class="alert alert-success">Registro exitoso. Puede iniciar sesión.</div>';
+}
+
+
 
 include("conexionbd.php");
 
@@ -32,7 +38,7 @@ if ($_POST) {
             header("location: index.php"); // Redirigir al usuario a la página principal
         } else {
             // Usuario o contraseña incorrectos
-            echo "<script>alert('Usuario o contraseña incorrecta')</script>";
+            echo '<div class="alert alert-danger">Usuario o contraseña incorrecta</div>';
         }
     } else {
         // Error en la consulta preparada
@@ -87,9 +93,9 @@ if ($_POST) {
                     <div class="card-body">
                         <form action="login.php" method="post">
                             Usuario:
-                            <input class="form-control" type="text" name="usuario" id="">
+                            <input required class="form-control" type="text" name="usuario" id="">
                             Password:
-                            <input class="form-control" type="password" name="contrasenia" id="">
+                            <input required class="form-control" type="password" name="contrasenia" id="">
                             <br>
                             <button class="btn btn-success" type="submit">Inicia sesion</button>
 

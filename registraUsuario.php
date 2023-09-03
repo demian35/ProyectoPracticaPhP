@@ -10,7 +10,7 @@ if ($_POST) {
 
     $sentencia = "INSERT INTO album.usuarios(idusuarios,usuario,contrasenia) values(null,'$usuario','$contrasenia');";
     $conbd->ejecutaConsulta($sentencia); //ejecutamos la consulta con el metodo de ejecutaconsulta de la clase conexionbd
-    header("location:login.php"); //redireccionamiento para que cuando el usuario actualice no se envie algo de nuevo
+    header("location:login.php?registro_exitoso=1"); //redireccionamiento para que cuando el usuario actualice no se envie algo de nuevo
 
 }
 
