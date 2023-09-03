@@ -33,17 +33,16 @@ class conexionbd{
         return $consulta->fetchAll();//regresamos todos los elementos que estan en la bd
     }
 
-    public function consultaUsuarios($sql){
-        $consulta=$this->coneccion->prepare($sql);
-        $consulta->execute();//ejecutamos la consulta
+    // En el método consultaUsuarios de conexionbd.php
+    public function consultaUsuarios($sql, $params = array()){
+        $consulta = $this->coneccion->prepare($sql);
+        $consulta->execute($params);
         return $consulta;
     }
-    
+
         
     
 
 
 
 }
-
-?>
