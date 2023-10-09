@@ -68,7 +68,9 @@ if ($_POST) {
     <style>
         body {
             background-image: url('img/rapturewallpaper.jpg');
-            background-size: 1370px 1200px;
+            height: 1200px;
+            width: 1370px;
+            background-size: auto;
             background-position: center;
         }
 
